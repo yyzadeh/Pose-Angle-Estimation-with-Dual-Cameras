@@ -23,6 +23,11 @@ This project demonstrates a **computer vision system** that captures two video s
 The core algorithm computes the facing angle of the person using pose keypoints:
 
 ```python
+NOSE = 0
+LEFT_SHOULDER = 5
+RIGHT_SHOULDER = 6
+
+def calculate_person_angle(keypoints_cam1, keypoints_cam2, confidence_threshold=0.3):
 try:
     required_indices = [NOSE, LEFT_SHOULDER, RIGHT_SHOULDER]
     max_index = max(required_indices)
@@ -31,12 +36,11 @@ try:
         print("Error: Keypoint list is None, missing, or too short. A camera may have failed to detect a pose.")
         return None
 
-    # Get keypoints from Camera 1
+    # Get keypoints from Cameras
     ls1 = keypoints_cam1[LEFT_SHOULDER]
     rs1 = keypoints_cam1[RIGHT_SHOULDER]
     nose1 = keypoints_cam1[NOSE]
 
-    # Get keypoints from Camera 2
     ls2 = keypoints_cam2[LEFT_SHOULDER]
     rs2 = keypoints_cam2[RIGHT_SHOULDER]
     nose2 = keypoints_cam2[NOSE]
@@ -73,13 +77,15 @@ try:
 ```
 
 ---
+## 🧑‍💻 Test presictions
 <p>
-    ![Test img](assets/deg1.png)
-    ![Test img](assets/deg2.png)
-    ![Test img](assets/test.png)
+    <img src="assets/deg1.png" alt="Logo" width="300"/>
+    <img src="assets/deg2.png" alt="Logo" width="300"/>
+    <img src="assets/output_of_kps.png" alt="Logo" width="300"/>
+</p>
 
-<p/>
 ---
+
 ## 🚀 Features
 - Dual camera setup for improved 3D understanding.
 - MoveNet Thunder for **real-time pose detection**.
@@ -90,23 +96,23 @@ try:
 
 ## 🛠️ Requirements
 - Python 3.8+
-- TensorFlow / TensorFlow Lite
+- Tensorflow hub (for import MoveNet)
 - OpenCV
-- DroidCam (for phone camera)
 - MoveNet Thunder model
+- DroidCam (for phone camera)
 
 Install dependencies:
 ```bash
-pip install tensorflow opencv-python
+pip install numpy tensorflow-hub opencv-python
 ```
 
 ---
 
 ## 📊 Applications
-- Ergonomic assessment
-- Sports performance analysis
-- Gesture recognition
-- Human-computer interaction
+- Ergonomic assessment 🧍‍♂️
+- Sports performance analysis ⚽
+- Gesture recognition ✌️
+- Human-computer interaction 💻
 
 ---
 
