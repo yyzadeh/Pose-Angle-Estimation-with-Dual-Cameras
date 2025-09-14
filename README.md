@@ -73,7 +73,13 @@ try:
 ```
 
 ---
+<p>
+    ![Test img](assets/deg1.png)
+    ![Test img](assets/deg2.png)
+    ![Test img](assets/test.png)
 
+<p/>
+---
 ## 🚀 Features
 - Dual camera setup for improved 3D understanding.
 - MoveNet Thunder for **real-time pose detection**.
